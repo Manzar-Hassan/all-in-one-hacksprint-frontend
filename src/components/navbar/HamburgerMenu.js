@@ -19,12 +19,12 @@ const HamburgerMenu = () => {
   const navigate = useNavigate();
 
   const changeHandler = (e) => {
-    if (e.target.innerText === "STUDENTS") {
+    if (e.target.innerText === "FOOD") {
       setOpenDrawer(false);
-      navigate("/");
-    } else if (e.target.innerText === "TEACHERS") {
+      navigate("/order");
+    } else if (e.target.innerText === "REPORT") {
       setOpenDrawer(false);
-      navigate("/teachers");
+      navigate("/report");
     }
   };
 
