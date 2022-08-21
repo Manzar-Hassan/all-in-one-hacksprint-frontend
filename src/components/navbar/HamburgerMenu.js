@@ -10,8 +10,8 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-import LocalDiningIcon from '@mui/icons-material/LocalDining';
-import ReportIcon from '@mui/icons-material/Report';
+import LocalDiningIcon from "@mui/icons-material/LocalDining";
+import ReportIcon from "@mui/icons-material/Report";
 import { useNavigate } from "react-router-dom";
 
 const HamburgerMenu = () => {
@@ -25,6 +25,9 @@ const HamburgerMenu = () => {
     } else if (e.target.innerText === "REPORT") {
       setOpenDrawer(false);
       navigate("/report");
+    }else if (e.target.innerText === "ITEM") {
+      setOpenDrawer(false);
+      navigate("/itemFound");
     }
   };
 
@@ -65,6 +68,25 @@ const HamburgerMenu = () => {
                   >
                     <ReportIcon />
                     REPORT
+                  </Box>
+                </ListItemText>
+              </ListItemIcon>
+            </ListItemButton>
+          </ListItem>
+          <ListItem>
+            <ListItemButton>
+              <ListItemIcon>
+                <ListItemText>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 1,
+                    }}
+                    onClick={changeHandler}
+                  >
+                    <ReportIcon />
+                    ITEM
                   </Box>
                 </ListItemText>
               </ListItemIcon>

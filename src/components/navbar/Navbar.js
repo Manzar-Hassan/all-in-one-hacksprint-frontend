@@ -23,12 +23,16 @@ const Navbar = () => {
 
   const changeHandler = (event, value) => {
     setValue(value);
-    value === 0 ? navigate("/order") : navigate("/report");
+    value === 0
+      ? navigate("/order")
+      : value === 1
+      ? navigate("/report")
+      : navigate("/itemFound");
   };
 
   const handleClick = () => {
     alert("you will be logged out!!");
-    setIsLoggedIn(false)
+    setIsLoggedIn(false);
     navigate("/signin");
   };
 
@@ -67,6 +71,7 @@ const Navbar = () => {
               >
                 <Tab label="Food" />
                 <Tab label="Report" />
+                <Tab label="Item" />
               </Tabs>
               <Stack
                 direction="row"

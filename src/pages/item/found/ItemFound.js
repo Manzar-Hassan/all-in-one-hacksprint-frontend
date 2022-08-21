@@ -15,12 +15,24 @@ import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import { useFormik } from "formik";
 import UniversityContext from "../../../context/UniversityContext";
 import { itemFoundSchema } from "../../../schema/ItemFoundSchema";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const ItemFound = () => {
-  const { loading } = useContext(UniversityContext);
+  const { loading, setLoading } = useContext(UniversityContext);
+  const navigate = useNavigate();
 
-  const onSubmit = (values, action) => {
-    console.log(values, action);
+  const onSubmit = async(values, action) => {
+    const url = "https://all-in-one-05.herokuapp.com/item-found";
+
+    try {
+      setLoading(true);
+      await axios.post(url, itemFound.values).then(({ data }) => alert(data.msg));
+      setLoading(false);
+      navigate("/")
+    } catch (error) {
+      console.log(error);
+    }
     action.resetForm();
   };
 
@@ -132,7 +144,7 @@ const ItemFound = () => {
               </form>
               <Grid item mt={1}>
                 <Typography sx={{ fontSize: "0.7rem" }}>
-                  No Account ? click here to <a href="/signup">Register</a>
+                  Lost Something? <Link to="/itemLost">Lost page</Link>
                 </Typography>
               </Grid>
             </Paper>

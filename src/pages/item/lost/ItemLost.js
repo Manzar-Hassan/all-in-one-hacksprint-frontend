@@ -15,12 +15,26 @@ import SearchOffIcon from "@mui/icons-material/SearchOff";
 import { useFormik } from "formik";
 import UniversityContext from "../../../context/UniversityContext";
 import { itemLostSchema } from "../../../schema/ItemLostSchema";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const ItemLost = () => {
-  const { loading } = useContext(UniversityContext);
+  const { loading, setLoading } = useContext(UniversityContext);
+  const navigate = useNavigate();
 
-  const onSubmit = (values, action) => {
-    console.log(values, action);
+  const onSubmit = async (values, action) => {
+    const url = "https://all-in-one-05.herokuapp.com/item-lost";
+
+    try {
+      setLoading(true);
+      await axios
+        .post(url, itemLost.values)
+        .then(({ data }) => alert(data.msg));
+      setLoading(false);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
     action.resetForm();
   };
 
@@ -132,7 +146,7 @@ const ItemLost = () => {
             </form>
             <Grid item mt={1}>
               <Typography sx={{ fontSize: "0.7rem" }}>
-                No Account ? click here to <a href="/signup">Register</a>
+                Found Something? <Link to="/itemFound">Found page</Link>
               </Typography>
             </Grid>
           </Paper>
