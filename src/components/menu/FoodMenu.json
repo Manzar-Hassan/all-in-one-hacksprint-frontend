@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Roast chicken",
+    "price": 443
+  },
+  {
+    "name": "Roasted Asparagus",
+    "price": 331
+  },
+  {
+    "name": "Lentils and Rice",
+    "price": 431
+  },
+  {
+    "name": "Big Night Pizza",
+    "price": 518
+  },
+  {
+    "name": "Chilled Prawn",
+    "price": 380
+  },
+  {
+    "name": "Big Dosa",
+    "price": 365
+  },
+  {
+    "name": "Oatmeal Cookies",
+    "price": 414
+  },
+  {
+    "name": "Blueberry",
+    "price": 358
+  },
+  {
+    "name": "Curried chicken salad",
+    "price": 436
+  },
+  {
+    "name": "Butter Naan",
+    "price": 442
+  }
+]
