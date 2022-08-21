@@ -51,7 +51,6 @@ const ItemLost = () => {
 
   return (
     <Box sx={{ minHeight: "100vh" }}>
-      {console.log(itemLost.values)}
       <Container maxWidth="sm">
         <Grid
           container
