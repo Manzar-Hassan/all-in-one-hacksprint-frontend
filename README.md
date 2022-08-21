@@ -21,3 +21,6 @@ It contains the schema for every form in page.
 
 # 6. assets Folder ->
 It contains all the images used in this project.
+
+# NOTE
+You will be logged out if u press the avatar of top right of navbar... and redirected to dashboard if you press the top left icon of navbar
