@@ -31,11 +31,20 @@ const SignIn = () => {
 
     try {
       setLoading(true);
-      await axios.post(url, data).then(({ data }) => alert(data.msg));
+      const loginCredentialsData = await axios.post(url, data);
       setLoading(false);
-      setIsLoggedIn(true);
-      setLoginUser(data.username);
-      navigate("/");
+      console.log(loginCredentialsData);
+
+      if (loginCredentialsData.status === 200) {
+        alert(loginCredentialsData.data.msg);
+        setIsLoggedIn(true);
+        setLoginUser(data.username);
+        navigate("/");
+      } else {
+        alert("wrong credentials!!");
+        action.resetForm();
+        return;
+      }
     } catch (error) {
       console.log(error);
     }
